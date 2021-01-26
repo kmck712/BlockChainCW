@@ -50,5 +50,16 @@ namespace BlockchainAssignment
             bool result  = Wallet.Wallet.ValidatePrivateKey(privateBox.Text, publicBox.Text);
             richTextBox1.Text = " the keys are " + result;
         }
+
+        private void transactionBox_Click(object sender, EventArgs e)
+        {
+           transcations newTransaction = new transcations(publicBox.Text, recipientBox.Text, Convert.ToDouble(amountText.Text), Convert.ToDouble(fee.Text), privateBox.Text);
+            richTextBox1.Text = newTransaction.getInfo();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

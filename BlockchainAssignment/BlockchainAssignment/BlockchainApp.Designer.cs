@@ -37,6 +37,13 @@
             this.priLab = new System.Windows.Forms.Label();
             this.pubLab = new System.Windows.Forms.Label();
             this.valWal = new System.Windows.Forms.Button();
+            this.transactionBox = new System.Windows.Forms.Button();
+            this.amountText = new System.Windows.Forms.TextBox();
+            this.fee = new System.Windows.Forms.TextBox();
+            this.amountLab = new System.Windows.Forms.Label();
+            this.feeLab = new System.Windows.Forms.Label();
+            this.recipientBox = new System.Windows.Forms.TextBox();
+            this.RecipientLab = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -51,7 +58,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 334);
+            this.textBox1.Location = new System.Drawing.Point(93, 334);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
             this.textBox1.TabIndex = 1;
@@ -59,9 +66,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(12, 332);
+            this.button1.Location = new System.Drawing.Point(0, 331);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(87, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Print Block";
             this.button1.UseVisualStyleBackColor = true;
@@ -69,7 +76,7 @@
             // 
             // walletButton
             // 
-            this.walletButton.Location = new System.Drawing.Point(593, 358);
+            this.walletButton.Location = new System.Drawing.Point(593, 350);
             this.walletButton.Name = "walletButton";
             this.walletButton.Size = new System.Drawing.Size(87, 59);
             this.walletButton.TabIndex = 3;
@@ -79,14 +86,14 @@
             // 
             // privateBox
             // 
-            this.privateBox.Location = new System.Drawing.Point(236, 358);
+            this.privateBox.Location = new System.Drawing.Point(236, 350);
             this.privateBox.Name = "privateBox";
             this.privateBox.Size = new System.Drawing.Size(351, 20);
             this.privateBox.TabIndex = 4;
             // 
             // publicBox
             // 
-            this.publicBox.Location = new System.Drawing.Point(236, 397);
+            this.publicBox.Location = new System.Drawing.Point(236, 389);
             this.publicBox.Name = "publicBox";
             this.publicBox.Size = new System.Drawing.Size(351, 20);
             this.publicBox.TabIndex = 5;
@@ -94,7 +101,7 @@
             // priLab
             // 
             this.priLab.AutoSize = true;
-            this.priLab.Location = new System.Drawing.Point(233, 337);
+            this.priLab.Location = new System.Drawing.Point(233, 334);
             this.priLab.Name = "priLab";
             this.priLab.Size = new System.Drawing.Size(60, 13);
             this.priLab.TabIndex = 6;
@@ -103,7 +110,7 @@
             // pubLab
             // 
             this.pubLab.AutoSize = true;
-            this.pubLab.Location = new System.Drawing.Point(237, 381);
+            this.pubLab.Location = new System.Drawing.Point(233, 373);
             this.pubLab.Name = "pubLab";
             this.pubLab.Size = new System.Drawing.Size(56, 13);
             this.pubLab.TabIndex = 7;
@@ -111,7 +118,7 @@
             // 
             // valWal
             // 
-            this.valWal.Location = new System.Drawing.Point(301, 423);
+            this.valWal.Location = new System.Drawing.Point(532, 415);
             this.valWal.Name = "valWal";
             this.valWal.Size = new System.Drawing.Size(148, 25);
             this.valWal.TabIndex = 8;
@@ -119,12 +126,78 @@
             this.valWal.UseVisualStyleBackColor = true;
             this.valWal.Click += new System.EventHandler(this.valWal_Click);
             // 
+            // transactionBox
+            // 
+            this.transactionBox.Location = new System.Drawing.Point(0, 410);
+            this.transactionBox.Name = "transactionBox";
+            this.transactionBox.Size = new System.Drawing.Size(87, 59);
+            this.transactionBox.TabIndex = 9;
+            this.transactionBox.Text = "Create transaction";
+            this.transactionBox.UseVisualStyleBackColor = true;
+            this.transactionBox.Click += new System.EventHandler(this.transactionBox_Click);
+            // 
+            // amountText
+            // 
+            this.amountText.Location = new System.Drawing.Point(93, 410);
+            this.amountText.Name = "amountText";
+            this.amountText.Size = new System.Drawing.Size(100, 20);
+            this.amountText.TabIndex = 10;
+            // 
+            // fee
+            // 
+            this.fee.Location = new System.Drawing.Point(93, 449);
+            this.fee.Name = "fee";
+            this.fee.Size = new System.Drawing.Size(100, 20);
+            this.fee.TabIndex = 11;
+            // 
+            // amountLab
+            // 
+            this.amountLab.AutoSize = true;
+            this.amountLab.Location = new System.Drawing.Point(90, 392);
+            this.amountLab.Name = "amountLab";
+            this.amountLab.Size = new System.Drawing.Size(43, 13);
+            this.amountLab.TabIndex = 12;
+            this.amountLab.Text = "Amount";
+            this.amountLab.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // feeLab
+            // 
+            this.feeLab.AutoSize = true;
+            this.feeLab.Location = new System.Drawing.Point(93, 433);
+            this.feeLab.Name = "feeLab";
+            this.feeLab.Size = new System.Drawing.Size(25, 13);
+            this.feeLab.TabIndex = 13;
+            this.feeLab.Text = "Fee";
+            // 
+            // recipientBox
+            // 
+            this.recipientBox.Location = new System.Drawing.Point(236, 449);
+            this.recipientBox.Name = "recipientBox";
+            this.recipientBox.Size = new System.Drawing.Size(351, 20);
+            this.recipientBox.TabIndex = 14;
+            // 
+            // RecipientLab
+            // 
+            this.RecipientLab.AutoSize = true;
+            this.RecipientLab.Location = new System.Drawing.Point(233, 427);
+            this.RecipientLab.Name = "RecipientLab";
+            this.RecipientLab.Size = new System.Drawing.Size(73, 13);
+            this.RecipientLab.TabIndex = 15;
+            this.RecipientLab.Text = "Recipient Key";
+            // 
             // BlockchainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(681, 481);
+            this.Controls.Add(this.RecipientLab);
+            this.Controls.Add(this.recipientBox);
+            this.Controls.Add(this.feeLab);
+            this.Controls.Add(this.amountLab);
+            this.Controls.Add(this.fee);
+            this.Controls.Add(this.amountText);
+            this.Controls.Add(this.transactionBox);
             this.Controls.Add(this.valWal);
             this.Controls.Add(this.pubLab);
             this.Controls.Add(this.priLab);
@@ -154,6 +227,13 @@
         private System.Windows.Forms.Label priLab;
         private System.Windows.Forms.Label pubLab;
         private System.Windows.Forms.Button valWal;
+        private System.Windows.Forms.Button transactionBox;
+        private System.Windows.Forms.TextBox amountText;
+        private System.Windows.Forms.TextBox fee;
+        private System.Windows.Forms.Label amountLab;
+        private System.Windows.Forms.Label feeLab;
+        private System.Windows.Forms.TextBox recipientBox;
+        private System.Windows.Forms.Label RecipientLab;
     }
 }
 

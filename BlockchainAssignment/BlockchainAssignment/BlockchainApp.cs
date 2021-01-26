@@ -13,6 +13,7 @@ namespace BlockchainAssignment
     public partial class BlockchainApp : Form
     {
         Blockchain blockchain;
+        Wallet.Wallet newWallet;
         public BlockchainApp()
         {
             InitializeComponent();
@@ -28,7 +29,26 @@ namespace BlockchainAssignment
         private void button1_Click(object sender, EventArgs e)
 
         {
-            richTextBox1.Text = blockchain.getInfo(0);
+            int blockInp = Convert.ToInt32(textBox1.Text);
+            
+            richTextBox1.Text = blockchain.getInfo(blockInp);
+        }
+
+        private void walletButton_Click(object sender, EventArgs e)
+        {
+            
+            String privKey;
+            newWallet = new Wallet.Wallet(out privKey);
+            String publicKey = newWallet.publicID;
+            privateBox.Text = privKey;
+            publicBox.Text = publicKey;
+
+        }
+
+        private void valWal_Click(object sender, EventArgs e)
+        {
+            bool result  = Wallet.Wallet.ValidatePrivateKey(privateBox.Text, publicBox.Text);
+            richTextBox1.Text = " the keys are " + result;
         }
     }
 }

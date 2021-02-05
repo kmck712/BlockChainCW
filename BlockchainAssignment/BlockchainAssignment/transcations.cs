@@ -38,7 +38,7 @@ namespace BlockchainAssignment
                 "\nTransfered: " + amount + " coins" +
                 "\nFees: " + fee +
                 "\nSender Address: " + senderAdd +
-                "\nRecipient Addres: " + recipientAdd;
+                "\nRecipient Addres: " + recipientAdd + "\n";
             return info;
         }
         private string createHash()
@@ -55,6 +55,14 @@ namespace BlockchainAssignment
                 hash += String.Format("{0:x2}", x);
             }
             return hash;
+        }
+        public double getFee()
+        {
+            return fee;
+        }
+        public double getAmount()
+        {
+            return amount;
         }
     }
 }

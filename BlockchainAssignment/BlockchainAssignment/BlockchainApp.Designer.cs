@@ -44,6 +44,9 @@
             this.feeLab = new System.Windows.Forms.Label();
             this.recipientBox = new System.Windows.Forms.TextBox();
             this.RecipientLab = new System.Windows.Forms.Label();
+            this.createBut = new System.Windows.Forms.Button();
+            this.printAll = new System.Windows.Forms.Button();
+            this.transactionsBut = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -58,17 +61,17 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(93, 334);
+            this.textBox1.Location = new System.Drawing.Point(77, 331);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.Size = new System.Drawing.Size(103, 20);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "please add text here";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(0, 331);
+            this.button1.Location = new System.Drawing.Point(0, 328);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 23);
+            this.button1.Size = new System.Drawing.Size(71, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "Print Block";
             this.button1.UseVisualStyleBackColor = true;
@@ -76,9 +79,9 @@
             // 
             // walletButton
             // 
-            this.walletButton.Location = new System.Drawing.Point(593, 350);
+            this.walletButton.Location = new System.Drawing.Point(606, 351);
             this.walletButton.Name = "walletButton";
-            this.walletButton.Size = new System.Drawing.Size(87, 59);
+            this.walletButton.Size = new System.Drawing.Size(74, 41);
             this.walletButton.TabIndex = 3;
             this.walletButton.Text = "Create Wallet";
             this.walletButton.UseVisualStyleBackColor = true;
@@ -86,14 +89,14 @@
             // 
             // privateBox
             // 
-            this.privateBox.Location = new System.Drawing.Point(236, 350);
+            this.privateBox.Location = new System.Drawing.Point(249, 344);
             this.privateBox.Name = "privateBox";
             this.privateBox.Size = new System.Drawing.Size(351, 20);
             this.privateBox.TabIndex = 4;
             // 
             // publicBox
             // 
-            this.publicBox.Location = new System.Drawing.Point(236, 389);
+            this.publicBox.Location = new System.Drawing.Point(249, 381);
             this.publicBox.Name = "publicBox";
             this.publicBox.Size = new System.Drawing.Size(351, 20);
             this.publicBox.TabIndex = 5;
@@ -101,7 +104,7 @@
             // priLab
             // 
             this.priLab.AutoSize = true;
-            this.priLab.Location = new System.Drawing.Point(233, 334);
+            this.priLab.Location = new System.Drawing.Point(246, 328);
             this.priLab.Name = "priLab";
             this.priLab.Size = new System.Drawing.Size(60, 13);
             this.priLab.TabIndex = 6;
@@ -110,7 +113,7 @@
             // pubLab
             // 
             this.pubLab.AutoSize = true;
-            this.pubLab.Location = new System.Drawing.Point(233, 373);
+            this.pubLab.Location = new System.Drawing.Point(250, 365);
             this.pubLab.Name = "pubLab";
             this.pubLab.Size = new System.Drawing.Size(56, 13);
             this.pubLab.TabIndex = 7;
@@ -118,9 +121,9 @@
             // 
             // valWal
             // 
-            this.valWal.Location = new System.Drawing.Point(532, 415);
+            this.valWal.Location = new System.Drawing.Point(606, 405);
             this.valWal.Name = "valWal";
-            this.valWal.Size = new System.Drawing.Size(148, 25);
+            this.valWal.Size = new System.Drawing.Size(87, 25);
             this.valWal.TabIndex = 8;
             this.valWal.Text = "Validate Wallet";
             this.valWal.UseVisualStyleBackColor = true;
@@ -128,7 +131,7 @@
             // 
             // transactionBox
             // 
-            this.transactionBox.Location = new System.Drawing.Point(0, 410);
+            this.transactionBox.Location = new System.Drawing.Point(0, 419);
             this.transactionBox.Name = "transactionBox";
             this.transactionBox.Size = new System.Drawing.Size(87, 59);
             this.transactionBox.TabIndex = 9;
@@ -138,14 +141,14 @@
             // 
             // amountText
             // 
-            this.amountText.Location = new System.Drawing.Point(93, 410);
+            this.amountText.Location = new System.Drawing.Point(93, 419);
             this.amountText.Name = "amountText";
             this.amountText.Size = new System.Drawing.Size(100, 20);
             this.amountText.TabIndex = 10;
             // 
             // fee
             // 
-            this.fee.Location = new System.Drawing.Point(93, 449);
+            this.fee.Location = new System.Drawing.Point(93, 458);
             this.fee.Name = "fee";
             this.fee.Size = new System.Drawing.Size(100, 20);
             this.fee.TabIndex = 11;
@@ -153,7 +156,7 @@
             // amountLab
             // 
             this.amountLab.AutoSize = true;
-            this.amountLab.Location = new System.Drawing.Point(90, 392);
+            this.amountLab.Location = new System.Drawing.Point(90, 403);
             this.amountLab.Name = "amountLab";
             this.amountLab.Size = new System.Drawing.Size(43, 13);
             this.amountLab.TabIndex = 12;
@@ -163,7 +166,7 @@
             // feeLab
             // 
             this.feeLab.AutoSize = true;
-            this.feeLab.Location = new System.Drawing.Point(93, 433);
+            this.feeLab.Location = new System.Drawing.Point(93, 442);
             this.feeLab.Name = "feeLab";
             this.feeLab.Size = new System.Drawing.Size(25, 13);
             this.feeLab.TabIndex = 13;
@@ -171,7 +174,7 @@
             // 
             // recipientBox
             // 
-            this.recipientBox.Location = new System.Drawing.Point(236, 449);
+            this.recipientBox.Location = new System.Drawing.Point(249, 449);
             this.recipientBox.Name = "recipientBox";
             this.recipientBox.Size = new System.Drawing.Size(351, 20);
             this.recipientBox.TabIndex = 14;
@@ -179,11 +182,41 @@
             // RecipientLab
             // 
             this.RecipientLab.AutoSize = true;
-            this.RecipientLab.Location = new System.Drawing.Point(233, 427);
+            this.RecipientLab.Location = new System.Drawing.Point(250, 433);
             this.RecipientLab.Name = "RecipientLab";
             this.RecipientLab.Size = new System.Drawing.Size(73, 13);
             this.RecipientLab.TabIndex = 15;
             this.RecipientLab.Text = "Recipient Key";
+            // 
+            // createBut
+            // 
+            this.createBut.Location = new System.Drawing.Point(0, 357);
+            this.createBut.Name = "createBut";
+            this.createBut.Size = new System.Drawing.Size(71, 47);
+            this.createBut.TabIndex = 16;
+            this.createBut.Text = "create Block";
+            this.createBut.UseVisualStyleBackColor = true;
+            this.createBut.Click += new System.EventHandler(this.createBut_Click);
+            // 
+            // printAll
+            // 
+            this.printAll.Location = new System.Drawing.Point(186, 329);
+            this.printAll.Name = "printAll";
+            this.printAll.Size = new System.Drawing.Size(54, 23);
+            this.printAll.TabIndex = 17;
+            this.printAll.Text = "Print All";
+            this.printAll.UseVisualStyleBackColor = true;
+            this.printAll.Click += new System.EventHandler(this.printAll_Click);
+            // 
+            // transactionsBut
+            // 
+            this.transactionsBut.Location = new System.Drawing.Point(77, 357);
+            this.transactionsBut.Name = "transactionsBut";
+            this.transactionsBut.Size = new System.Drawing.Size(90, 47);
+            this.transactionsBut.TabIndex = 18;
+            this.transactionsBut.Text = "All pending transactions";
+            this.transactionsBut.UseVisualStyleBackColor = true;
+            this.transactionsBut.Click += new System.EventHandler(this.transactionsBut_Click);
             // 
             // BlockchainApp
             // 
@@ -191,6 +224,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(681, 481);
+            this.Controls.Add(this.transactionsBut);
+            this.Controls.Add(this.printAll);
+            this.Controls.Add(this.createBut);
             this.Controls.Add(this.RecipientLab);
             this.Controls.Add(this.recipientBox);
             this.Controls.Add(this.feeLab);
@@ -234,6 +270,9 @@
         private System.Windows.Forms.Label feeLab;
         private System.Windows.Forms.TextBox recipientBox;
         private System.Windows.Forms.Label RecipientLab;
+        private System.Windows.Forms.Button createBut;
+        private System.Windows.Forms.Button printAll;
+        private System.Windows.Forms.Button transactionsBut;
     }
 }
 

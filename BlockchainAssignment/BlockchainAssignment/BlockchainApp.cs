@@ -53,9 +53,17 @@ namespace BlockchainAssignment
 
         private void transactionBox_Click(object sender, EventArgs e)
         {
-           transcations newTransaction = new transcations(publicBox.Text, recipientBox.Text, Convert.ToDouble(amountText.Text), Convert.ToDouble(fee.Text), privateBox.Text);
-            richTextBox1.Text = newTransaction.getInfo();
-            blockchain.addTransactionPool(newTransaction);
+            if (blockchain.clacBalence(publicBox.Text) < Convert.ToDouble(amountText.Text))
+            {
+                richTextBox1.Text = "Ther are insufficent funds to do this transaction";
+            }
+            else
+            {
+                transcations newTransaction = new transcations(publicBox.Text, recipientBox.Text, Convert.ToDouble(amountText.Text), Convert.ToDouble(fee.Text), privateBox.Text);
+                richTextBox1.Text = newTransaction.getInfo();
+                blockchain.addTransactionPool(newTransaction);
+            }
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -80,5 +88,17 @@ namespace BlockchainAssignment
             richTextBox1.Text = blockchain.printTransactions();
         }
 
+        private void validateBlock_Click(object sender, EventArgs e)
+        {
+            bool valid = blockchain.validate();
+            richTextBox1.Text = "The blockchain is " + valid;
+        }
+
+        private void balanceCheck_Click(object sender, EventArgs e)
+        {
+            double balance = blockchain.clacBalence(recipientBox.Text);
+            richTextBox1.Text = "It is worth " + balance;
+
+        }
     }
 }

@@ -83,10 +83,32 @@ namespace BlockchainAssignment
             }
             return result;
         }
+        public double clacBalence(String pubKey)
+        {
+            double balence = 0.0;
+            foreach (Block i in Blocks)
+            {
+                balence += i.getBalence( pubKey);
+            }
+            return balence;
+        }
 
         public int getTransactionnum()
         {
             return transactionPool.Count;
+        }
+
+        public bool validate()
+        {
+            bool valid = true;
+            for (int i = 0; i < Blocks.Count - 1; i++)
+            {
+                if (Blocks[i].getHash() != Blocks[i + 1].getPreviousHash())
+                {
+                    valid = false;
+                }
+            }
+            return valid;
         }
     }
 }

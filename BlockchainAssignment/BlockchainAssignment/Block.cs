@@ -93,6 +93,26 @@ namespace BlockchainAssignment
         {
             return currentHash;
         }
+        public String getPreviousHash()
+        {
+            return previousHash;
+        }
+        public double getBalence(String pubKey)
+        {
+            double balence = 0.0;
+            foreach (transcations i in transactionList)
+            {
+                if (i.getSenderAdd() == pubKey)
+                {
+                    balence -= i.getAmount();
+                }
+                else if (i.getRecipientAdd() == pubKey && i.getRecipientAdd() != "Mine Rewards")
+                {
+                    balence += i.getAmount();
+                }
+            }
+            return balence;
+        }
         public int getIndx()
         {
             return positionInx;

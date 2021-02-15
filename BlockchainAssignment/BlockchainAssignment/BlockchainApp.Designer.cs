@@ -47,6 +47,8 @@
             this.createBut = new System.Windows.Forms.Button();
             this.printAll = new System.Windows.Forms.Button();
             this.transactionsBut = new System.Windows.Forms.Button();
+            this.validateBlock = new System.Windows.Forms.Button();
+            this.balanceCheck = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -218,12 +220,34 @@
             this.transactionsBut.UseVisualStyleBackColor = true;
             this.transactionsBut.Click += new System.EventHandler(this.transactionsBut_Click);
             // 
+            // validateBlock
+            // 
+            this.validateBlock.Location = new System.Drawing.Point(249, 405);
+            this.validateBlock.Name = "validateBlock";
+            this.validateBlock.Size = new System.Drawing.Size(111, 25);
+            this.validateBlock.TabIndex = 19;
+            this.validateBlock.Text = "Validate BlockChain";
+            this.validateBlock.UseVisualStyleBackColor = true;
+            this.validateBlock.Click += new System.EventHandler(this.validateBlock_Click);
+            // 
+            // balanceCheck
+            // 
+            this.balanceCheck.Location = new System.Drawing.Point(419, 405);
+            this.balanceCheck.Name = "balanceCheck";
+            this.balanceCheck.Size = new System.Drawing.Size(111, 25);
+            this.balanceCheck.TabIndex = 20;
+            this.balanceCheck.Text = "Check Balance";
+            this.balanceCheck.UseVisualStyleBackColor = true;
+            this.balanceCheck.Click += new System.EventHandler(this.balanceCheck_Click);
+            // 
             // BlockchainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(681, 481);
+            this.Controls.Add(this.balanceCheck);
+            this.Controls.Add(this.validateBlock);
             this.Controls.Add(this.transactionsBut);
             this.Controls.Add(this.printAll);
             this.Controls.Add(this.createBut);
@@ -273,6 +297,8 @@
         private System.Windows.Forms.Button createBut;
         private System.Windows.Forms.Button printAll;
         private System.Windows.Forms.Button transactionsBut;
+        private System.Windows.Forms.Button validateBlock;
+        private System.Windows.Forms.Button balanceCheck;
     }
 }
 

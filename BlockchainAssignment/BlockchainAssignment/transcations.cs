@@ -64,5 +64,13 @@ namespace BlockchainAssignment
         {
             return amount;
         }
+        public String getRecipientAdd()
+        {
+            return recipientAdd;
+        }
+        public String getSenderAdd()
+        {
+            return senderAdd;
+        }
     }
 }

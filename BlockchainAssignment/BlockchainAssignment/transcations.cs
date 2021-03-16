@@ -72,5 +72,11 @@ namespace BlockchainAssignment
         {
             return senderAdd;
         }
+
+        public DateTime getTimeStamp()
+        {
+            return timeStamp;
+        }
+       
     }
 }

@@ -49,6 +49,13 @@
             this.transactionsBut = new System.Windows.Forms.Button();
             this.validateBlock = new System.Windows.Forms.Button();
             this.balanceCheck = new System.Windows.Forms.Button();
+            this.test = new System.Windows.Forms.Button();
+            this.settingsLab = new System.Windows.Forms.Label();
+            this.AltSetBut = new System.Windows.Forms.Button();
+            this.RanSetBut = new System.Windows.Forms.Button();
+            this.greSetBut = new System.Windows.Forms.Button();
+            this.addSetBut = new System.Windows.Forms.Button();
+            this.desiredAddress = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // richTextBox1
@@ -57,7 +64,7 @@
             this.richTextBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.richTextBox1.Location = new System.Drawing.Point(12, 12);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(657, 314);
+            this.richTextBox1.Size = new System.Drawing.Size(506, 314);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -240,12 +247,87 @@
             this.balanceCheck.UseVisualStyleBackColor = true;
             this.balanceCheck.Click += new System.EventHandler(this.balanceCheck_Click);
             // 
+            // test
+            // 
+            this.test.Location = new System.Drawing.Point(168, 369);
+            this.test.Name = "test";
+            this.test.Size = new System.Drawing.Size(75, 23);
+            this.test.TabIndex = 21;
+            this.test.Text = "button2";
+            this.test.UseVisualStyleBackColor = true;
+            this.test.Click += new System.EventHandler(this.test_Click);
+            // 
+            // settingsLab
+            // 
+            this.settingsLab.AutoSize = true;
+            this.settingsLab.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsLab.Location = new System.Drawing.Point(552, 38);
+            this.settingsLab.Name = "settingsLab";
+            this.settingsLab.Size = new System.Drawing.Size(84, 24);
+            this.settingsLab.TabIndex = 22;
+            this.settingsLab.Text = "Settings";
+            // 
+            // AltSetBut
+            // 
+            this.AltSetBut.Location = new System.Drawing.Point(556, 65);
+            this.AltSetBut.Name = "AltSetBut";
+            this.AltSetBut.Size = new System.Drawing.Size(74, 41);
+            this.AltSetBut.TabIndex = 23;
+            this.AltSetBut.Text = "Altruistic";
+            this.AltSetBut.UseVisualStyleBackColor = true;
+            this.AltSetBut.Click += new System.EventHandler(this.AltSetBut_Click);
+            // 
+            // RanSetBut
+            // 
+            this.RanSetBut.Location = new System.Drawing.Point(556, 159);
+            this.RanSetBut.Name = "RanSetBut";
+            this.RanSetBut.Size = new System.Drawing.Size(74, 41);
+            this.RanSetBut.TabIndex = 24;
+            this.RanSetBut.Text = "Random";
+            this.RanSetBut.UseVisualStyleBackColor = true;
+            this.RanSetBut.Click += new System.EventHandler(this.RanSetBut_Click);
+            // 
+            // greSetBut
+            // 
+            this.greSetBut.Location = new System.Drawing.Point(556, 112);
+            this.greSetBut.Name = "greSetBut";
+            this.greSetBut.Size = new System.Drawing.Size(74, 41);
+            this.greSetBut.TabIndex = 25;
+            this.greSetBut.Text = "Greedy";
+            this.greSetBut.UseVisualStyleBackColor = true;
+            this.greSetBut.Click += new System.EventHandler(this.greSetBut_Click);
+            // 
+            // addSetBut
+            // 
+            this.addSetBut.Location = new System.Drawing.Point(556, 206);
+            this.addSetBut.Name = "addSetBut";
+            this.addSetBut.Size = new System.Drawing.Size(74, 41);
+            this.addSetBut.TabIndex = 26;
+            this.addSetBut.Text = "Prefered Address";
+            this.addSetBut.UseVisualStyleBackColor = true;
+            this.addSetBut.Click += new System.EventHandler(this.addSetBut_Click);
+            // 
+            // desiredAddress
+            // 
+            this.desiredAddress.Location = new System.Drawing.Point(524, 253);
+            this.desiredAddress.Name = "desiredAddress";
+            this.desiredAddress.Size = new System.Drawing.Size(156, 20);
+            this.desiredAddress.TabIndex = 27;
+            this.desiredAddress.Text = "Desired Address";
+            // 
             // BlockchainApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(681, 481);
+            this.Controls.Add(this.desiredAddress);
+            this.Controls.Add(this.addSetBut);
+            this.Controls.Add(this.greSetBut);
+            this.Controls.Add(this.RanSetBut);
+            this.Controls.Add(this.AltSetBut);
+            this.Controls.Add(this.settingsLab);
+            this.Controls.Add(this.test);
             this.Controls.Add(this.balanceCheck);
             this.Controls.Add(this.validateBlock);
             this.Controls.Add(this.transactionsBut);
@@ -299,6 +381,13 @@
         private System.Windows.Forms.Button transactionsBut;
         private System.Windows.Forms.Button validateBlock;
         private System.Windows.Forms.Button balanceCheck;
+        private System.Windows.Forms.Button test;
+        private System.Windows.Forms.Label settingsLab;
+        private System.Windows.Forms.Button AltSetBut;
+        private System.Windows.Forms.Button RanSetBut;
+        private System.Windows.Forms.Button greSetBut;
+        private System.Windows.Forms.Button addSetBut;
+        private System.Windows.Forms.TextBox desiredAddress;
     }
 }
 

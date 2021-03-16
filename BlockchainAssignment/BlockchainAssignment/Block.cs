@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Threading;
+using System.Timers;
 //using System.Diagnostics;
 
 namespace BlockchainAssignment
@@ -20,8 +22,52 @@ namespace BlockchainAssignment
         double rewards;
         double fees;
         String minerAddress;
-        
-        public Block(String lastHash, int lastInx, List<transcations> curentTrans,String  minerAddress)
+
+        private static System.Timers.Timer aTimer;
+        private int timeElp = 0;
+
+        public Block(String lastHash, int lastInx, List<transcations> curentTrans,String  minerAddress, int test)
+        {
+            Thread threadOdd = new Thread(new ThreadStart(threadMine));
+            Thread threadEven = new Thread(new ThreadStart(threadMine));
+
+            creationT = DateTime.Now;
+            positionInx = lastInx + 1;
+            previousHash = lastHash;
+            transactionList = curentTrans;
+            difficulty = 5;
+            nonce = 0;
+            threadEven.Start();
+            Thread.Sleep(10);
+            nonce++;
+            threadOdd.Start();
+            while (threadEven.IsAlive && threadOdd.IsAlive)
+            {
+                
+            }
+            if (threadEven.IsAlive)
+            {
+                threadEven.Abort();
+            }
+            else if(threadOdd.IsAlive)
+            {
+                threadOdd.Abort();
+            }
+            aTimer.Stop();
+            aTimer.Dispose();
+            Console.WriteLine("worked " + nonce + "time taken " + timeElp);
+            timeElp = 0;
+            /*
+            calcRewards();
+            this.minerAddress = minerAddress;
+            transcations transaction = new transcations("Mine Rewards", minerAddress,(rewards + fees), 0, "");
+            transactionList.Add(transaction);
+            mine();
+            */
+
+        }
+
+        public Block(String lastHash, int lastInx, List<transcations> curentTrans, String minerAddress)
         {
             creationT = DateTime.Now;
             positionInx = lastInx + 1;
@@ -31,9 +77,10 @@ namespace BlockchainAssignment
             nonce = 0;
             calcRewards();
             this.minerAddress = minerAddress;
-            transcations transaction = new transcations("Mine Rewards", minerAddress,(rewards + fees), 0, "");
+            transcations transaction = new transcations("Mine Rewards", minerAddress, (rewards + fees), 0, "");
             transactionList.Add(transaction);
             mine();
+
         }
         public Block()
         {
@@ -44,7 +91,36 @@ namespace BlockchainAssignment
             nonce = 0;
             mine();
         }
+               
 
+        private void threadMine()
+        {
+            int tempNonce = nonce;
+            Boolean difficult = false;
+            while (difficult == false)
+            {
+                currentHash = createHashTest(tempNonce);
+                int count = 0;
+                for (int i = 0; i < difficulty; i++)
+                {
+                    char c = currentHash[i];
+                    if (c.Equals('0'))
+                    {
+                        count += 1;
+                    }
+                }
+                if (count == difficulty)
+                {
+                    nonce = tempNonce;
+                    difficult = true;
+                }
+                else
+                {
+                    tempNonce += 2;
+                }
+            }
+
+        }
         private String createHash()
         {
             SHA256 hasher;
@@ -62,6 +138,22 @@ namespace BlockchainAssignment
 
         }
 
+        private String createHashTest(int nonce)
+        {
+            SHA256 hasher;
+            hasher = SHA256Managed.Create();
+            String input = positionInx.ToString() + creationT.ToString() + previousHash + nonce.ToString() + difficulty.ToString() + rewards.ToString();
+            Byte[] hashByte = hasher.ComputeHash(Encoding.UTF8.GetBytes((input)));
+
+            String hash = string.Empty;
+
+            foreach (byte x in hashByte)
+            {
+                hash += String.Format("{0:x2}", x);
+            }
+            return hash;
+
+        }
         private void calcRewards()
         {
             foreach (transcations t in transactionList)
@@ -117,8 +209,9 @@ namespace BlockchainAssignment
         {
             return positionInx;
         }
+      
         private void mine()
-        {
+        { 
             Boolean difficult = false;
             while (difficult == false)
             {
@@ -142,20 +235,6 @@ namespace BlockchainAssignment
                 }
             }
         }
-
-        /*
-         * 
-        public String getTransactions()
-        {
-            String result = null;
-            for (int i = 0; i < transactionList.Count; i++)
-            {
-                result += "\n" + transactionList[i].getInfo();
-            }
-           
-            return result;
-        }
-        */
     }
 
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace BlockchainAssignment
 {
@@ -14,13 +15,17 @@ namespace BlockchainAssignment
     {
         Blockchain blockchain;
         Wallet.Wallet newWallet;
+        Thread threadOdd;
         public BlockchainApp()
         {
             InitializeComponent();
             blockchain = new Blockchain();
             richTextBox1.Text = blockchain.getInfo(0);
-        }
+           
 
+
+        }
+  
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -52,18 +57,22 @@ namespace BlockchainAssignment
         }
 
         private void transactionBox_Click(object sender, EventArgs e)
-        {
-            if (blockchain.clacBalence(publicBox.Text) < Convert.ToDouble(amountText.Text))
-            {
-                richTextBox1.Text = "Ther are insufficent funds to do this transaction";
-            }
-            else
-            {
-                transcations newTransaction = new transcations(publicBox.Text, recipientBox.Text, Convert.ToDouble(amountText.Text), Convert.ToDouble(fee.Text), privateBox.Text);
-                richTextBox1.Text = newTransaction.getInfo();
-                blockchain.addTransactionPool(newTransaction);
-            }
-           
+        { 
+            transcations newTransaction = new transcations(publicBox.Text, recipientBox.Text, Convert.ToDouble(amountText.Text), Convert.ToDouble(fee.Text), privateBox.Text);
+            richTextBox1.Text = newTransaction.getInfo();
+            blockchain.addTransactionPool(newTransaction);
+            /*   if (blockchain.clacBalence(publicBox.Text) < Convert.ToDouble(amountText.Text))
+               {
+                   richTextBox1.Text = "Ther are insufficent funds to do this transaction";
+               }
+               else
+               {
+                   transcations newTransaction = new transcations(publicBox.Text, recipientBox.Text, Convert.ToDouble(amountText.Text), Convert.ToDouble(fee.Text), privateBox.Text);
+                   richTextBox1.Text = newTransaction.getInfo();
+                   blockchain.addTransactionPool(newTransaction);
+               }
+            */
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -73,7 +82,11 @@ namespace BlockchainAssignment
 
         private void createBut_Click(object sender, EventArgs e)
         {
-             blockchain.newBlock(recipientBox.Text);
+            if (blockchain.getSetType() == 3)
+            {
+                blockchain.setDesiredAddress(desiredAddress.Text);
+            }
+            blockchain.newBlock(recipientBox.Text);
             richTextBox1.Text = blockchain.getMostRecentBlock();
 
         }
@@ -99,6 +112,31 @@ namespace BlockchainAssignment
             double balance = blockchain.clacBalence(recipientBox.Text);
             richTextBox1.Text = "It is worth " + balance;
 
+        }
+
+        private void test_Click(object sender, EventArgs e)
+        {
+            blockchain.newBlock("waidjiawdjiuwjdiowjiowdjo");
+        }
+
+        private void AltSetBut_Click(object sender, EventArgs e)
+        {
+            blockchain.setAlgType(0);
+        }
+
+        private void greSetBut_Click(object sender, EventArgs e)
+        {
+            blockchain.setAlgType(1);
+        }
+
+        private void RanSetBut_Click(object sender, EventArgs e)
+        {
+            blockchain.setAlgType(2);
+        }
+
+        private void addSetBut_Click(object sender, EventArgs e)
+        {
+            blockchain.setAlgType(3);
         }
     }
 }
